@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/lightGray"
+    android:padding="4dp"
+    tools:context=".ui.RecipeFilterFragment"
+    android:orientation="horizontal">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/row_cardView"
+        android:layout_width="0dp"
+        android:layout_height="158dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/lightGray">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="158dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/recipe_imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FF8A80"
+                android:contentDescription="@string/recipe_image"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textRecipe"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="1dp"
+                android:background="#FFFFFF"
+                android:ellipsize="end"
+                android:hint="@string/title_hint"
+                android:singleLine="true"
+                android:textColor="@color/dark_blue"
+                android:textColorHint="#78909C"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/authorName"
+                app:layout_constraintEnd_toStartOf="@+id/menuOptions"
+                app:layout_constraintStart_toEndOf="@+id/recipe_imageView"
+                app:layout_constraintStart_toStartOf="@+id/authorName"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/authorName"
+                android:layout_width="175dp"
+                android:layout_height="28dp"
+                android:background="#FFFFFF"
+                android:ellipsize="end"
+                android:hint="@string/author_name_hint"
+                android:singleLine="true"
+                android:textColorHint="#757575"
+                app:layout_constraintBottom_toTopOf="@+id/categoryRecipe"
+                app:layout_constraintStart_toStartOf="@+id/categoryRecipe"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+
+            <TextView
+                android:id="@+id/categoryRecipe"
+                style="@style/recipe_title_style"
+                android:layout_width="150dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:ellipsize="end"
+                android:hint="@string/category_recipe_hint"
+                android:singleLine="true"
+                android:textColorHint="#546E7A"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/buttonFavorite"
+                app:layout_constraintStart_toEndOf="@+id/recipe_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/menuOptions"
+                app:layout_constraintVertical_bias="0.423" />
+
+            <TextView
+                android:id="@+id/textRecipe"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="8dp"
+                android:background="#FFFFFF"
+                android:ellipsize="end"
+                android:hint="@string/text_hint"
+                android:maxLines="3"
+                android:minHeight="48dp"
+                android:textColor="@color/black"
+                android:textColorHint="#757575"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonFavorite"
+                app:layout_constraintStart_toEndOf="@+id/recipe_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/categoryRecipe" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/menuOptions"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="44dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/menu_options_description"
+                app:icon="@drawable/icon_menu"
+                app:iconGravity="end"
+                app:iconTint="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/buttonFavorite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/buttonFavorite"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@android:color/transparent"
+                android:clickable="true"
+                android:contentDescription="@string/button_favorite_description"
+                android:minHeight="48dp"
+                android:src="@drawable/icon_is_not_favorites"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textRecipe"
+                app:layout_constraintTop_toBottomOf="@+id/menuOptions" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

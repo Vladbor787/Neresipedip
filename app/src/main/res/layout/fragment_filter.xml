@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    tools:context=".ui.RecipeFilterFragment"
+    android:orientation="horizontal">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topMenu"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:backgroundTint="@color/teal_700"
+            app:title="@string/filter" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RadioGroup
+        android:id="@+id/categoryRecipeCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar">
+
+        <RadioButton
+            android:id="@+id/checkBoxBeef"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/european_category" />
+
+        <RadioButton
+            android:id="@+id/checkBoxPork"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/asian_category" />
+
+        <RadioButton
+            android:id="@+id/checkBoxLamb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/panasian_category" />
+
+        <RadioButton
+            android:id="@+id/checkBoxChicken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eastern_category" />
+
+        <RadioButton
+            android:id="@+id/checkBoxSeafood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/american_category" />
+
+        <RadioButton
+            android:id="@+id/checkBoxPasta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/russian_category" />
+
+        <RadioButton
+            android:id="@+id/checkBoxDessert"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/miditerranean_category" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonApply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/purple_700"
+        android:clickable="true"
+        android:text="@string/button_apply_text"
+        android:textColor="@color/lightGray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categoryRecipeCheckBox" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

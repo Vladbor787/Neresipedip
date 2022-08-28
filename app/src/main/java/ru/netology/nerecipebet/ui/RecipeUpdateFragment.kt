@@ -65,6 +65,16 @@ class RecipeUpdateFragment : Fragment() {
         binding.authorName.setText(args.idRecipe?.authorName)
         binding.textRecipe.setText(args.idRecipe?.textRecipe)
         binding.recipeImageView.setText(args.idRecipe?.recipeImage)
+        binding.categoryRecipeCheckBox.check(when (args.idRecipe?.categoryRecipe) {
+            getString(R.string.european_category) -> R.id.checkBoxBeef
+            getString(R.string.asian_category) -> R.id.checkBoxPork
+            getString(R.string.panasian_category) -> R.id.checkBoxLamb
+            getString(R.string.eastern_category) -> R.id.checkBoxChicken
+            getString(R.string.american_category) -> R.id.checkBoxSeafood
+            getString(R.string.russian_category) -> R.id.checkBoxPasta
+            getString(R.string.miditerranean_category) -> R.id.checkBoxDessert
+            else -> -1
+        })
 
     }
 

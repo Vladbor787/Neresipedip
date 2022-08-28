@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Книга рецептов</string>
     <string name="button_add_description">Кнопка добавить</string>
     <string name="icon_background_description">Фон значка</string>

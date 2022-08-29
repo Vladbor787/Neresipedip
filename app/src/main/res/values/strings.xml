@@ -1,4 +1,5 @@
 <resources>
+    <string name="filter_caution">"You cannot disable all filters"</string>
     <string name="app_name">NerecipeBet</string>
     <string name="button_add_description">buttonAdd</string>
     <string name="icon_background_description">icon_background</string>
@@ -27,7 +28,6 @@
     <string name="recipe_create">Create a recipe</string>
     <string name="search_hint">search recipe</string>
     <string name="text_hint2">Recipes no found? Let\'s create the new one</string>
-
     <string name="european_category">European</string>
     <string name="asian_category">Asian</string>
     <string name="panasian_category">Panasian</string>

@@ -36,8 +36,7 @@ class RecipeViewFragment : Fragment() {
         binding.authorName.text = args.viewRecipe?.authorName.toString()
         binding.categoryRecipe.text = args.viewRecipe?.categoryRecipe.toString()
         binding.textRecipe.text = args.viewRecipe?.textRecipe.toString()
-        val uri = args.viewRecipe?.recipeImage.toString()
-        Picasso.get().load(uri)
+        Picasso.get().load(args.viewRecipe?.recipeImage.toString())
             .error(R.drawable.ic_error_placeholder)
             .into(binding.recipeImageView)
     }

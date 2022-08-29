@@ -62,7 +62,7 @@ class RecipeFilterFragment : DialogFragment() {
         }
 
         if (checkedCount == numberOfFilters) {
-            Toast.makeText(activity, "You cannot disable all filters", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, getString(R.string.filter_caution), Toast.LENGTH_LONG).show()
             return
         } else findNavController().popBackStack()
     }

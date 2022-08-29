@@ -41,7 +41,7 @@
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="142dp"
+                android:layout_width="174dp"
                 android:layout_height="26dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="7dp"
@@ -51,7 +51,7 @@
                 android:singleLine="true"
                 android:textColor="@color/dark_blue"
                 android:textColorHint="#78909C"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/authorName"
                 app:layout_constraintStart_toEndOf="@+id/recipe_imageView" />

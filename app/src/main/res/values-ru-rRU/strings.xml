@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="filter_caution">"Ни один из фильтров не выбран"</string>
     <string name="app_name">Книга рецептов</string>
     <string name="button_add_description">Кнопка добавить</string>
     <string name="icon_background_description">Фон значка</string>
@@ -24,7 +25,7 @@
     <string name="all_recipes">Все рецепты</string>
     <string name="remove">Удалить</string>
     <string name="edit">Редактировать</string>
-    <string name="recipe_image">Фото рецепта ввиде вставки ссылки,с камеры либо из галереи </string>
+    <string name="recipe_image">Фото рецепта</string>
     <string name="recipe_overview">Описание рецепта</string>
     <string name="recipe_create">Создание рецепта</string>
     <string name="search_hint">Поиск рецептов</string>

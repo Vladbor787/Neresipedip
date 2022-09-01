@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.netology.nerecipebet.adapter.RecipeInteractionListener
 import ru.netology.nerecipebet.db.AppDb
+import ru.netology.nerecipebet.dto.FilterState
 import ru.netology.nerecipebet.dto.PhotoModel
 import ru.netology.nerecipebet.dto.Recipe
 import ru.netology.nerecipebet.repository.RecipeRepository
@@ -19,6 +20,8 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application),
     private val repository: RecipeRepository =
         RecipeRepositoryImpl(dao = AppDb.getInstance(context = application).recipeDao)
     private val _photo = MutableLiveData(noPhoto)
+    val filterStateMutableLiveData = MutableLiveData(FilterState())
+    private val filterSingleLiveEvent = Event<Boolean>()
     val photo: LiveData<PhotoModel>
         get() = _photo
     val data by repository::data
@@ -33,14 +36,14 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application),
     val feedFragment = data
     private val currentRecipe = MutableLiveData<Recipe?>(null)
 
+
     fun updateListOnMove(from: Long, to: Long, fromId: Long, toId: Long) {
         repository.updateListOnMove(from, to, fromId, toId)
     }
     fun clearFilter() {
         repository.getData()
     }
-
-    override fun updateContent(
+     override fun updateContent(
         id: Long,
         title: String,
         authorName: String,
@@ -109,41 +112,49 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application),
         singleFragment.call()
     }
 
-
     fun showBeefCategory(categoryRecipe: String) {
         repository.showEuropeanCategory(categoryRecipe)
+        filterSingleLiveEvent.value = true
         filterIsActive = true
     }
     fun showPorkCategory(categoryRecipe: String) {
         repository.showAsianCategory(categoryRecipe)
+        filterSingleLiveEvent.value = true
         filterIsActive = true
     }
-
     fun showLambCategory(categoryRecipe: String) {
         repository.showPanasianCategory(categoryRecipe)
+        filterSingleLiveEvent.value = true
         filterIsActive = true
     }
 
     fun showChickenCategory(categoryRecipe: String) {
         repository.showEasternCategory(categoryRecipe)
+        filterSingleLiveEvent.value = true
         filterIsActive = true
     }
 
     fun showSeafoodCategory(categoryRecipe: String) {
         repository.showAmericanCategory(categoryRecipe)
+        filterSingleLiveEvent.value = true
         filterIsActive = true
     }
 
     fun showPastaCategory(categoryRecipe: String) {
         repository.showRussianCategory(categoryRecipe)
+        filterSingleLiveEvent.value = true
         filterIsActive = true
     }
     fun showDessertCategory(categoryRecipe: String) {
         repository.showMediterraneanCategory(categoryRecipe)
+        filterSingleLiveEvent.value = true
         filterIsActive = true
     }
 
     fun changePhoto(uri: Uri?) {
         _photo.value = PhotoModel(uri)
+    }
+    fun resetFilterCheckboxes() {
+        filterStateMutableLiveData.value = FilterState()
     }
 }

@@ -19,9 +19,20 @@ class RecipeFilterFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = FragmentFilterBinding.inflate(layoutInflater, container, false).also { binding ->
-
+        viewModel.clearFilter()
         binding.buttonApply.setOnClickListener {
             onApplyButtonClicked(binding)
+        }
+        viewModel.filterStateMutableLiveData.observe(viewLifecycleOwner) { filterState ->
+            with(binding) {
+                checkBoxBeef.isChecked = filterState.europeanIsActive
+                checkBoxPork.isChecked = filterState.asianIsActive
+                checkBoxLamb.isChecked = filterState.panasianIsActive
+                checkBoxChicken.isChecked = filterState.easternIsActive
+                checkBoxSeafood.isChecked = filterState.americanIsActive
+                checkBoxPasta.isChecked = filterState.russianIsActive
+                checkBoxDessert.isChecked = filterState.mediterraneanIsActive
+            }
         }
 
     }.root
@@ -64,7 +75,29 @@ class RecipeFilterFragment : DialogFragment() {
         if (checkedCount == numberOfFilters) {
             Toast.makeText(activity, getString(R.string.filter_caution), Toast.LENGTH_LONG).show()
             return
-        } else findNavController().popBackStack()
+        }
+        if (checkedCount == 0) {
+            viewModel.clearFilter()
+            saveFilterState(binding)
+        } else
+            saveFilterState(binding)
+        findNavController().popBackStack()
     }
 
+    private fun saveFilterState(binding: FragmentFilterBinding) {
+        viewModel.filterStateMutableLiveData.value?.europeanIsActive =
+            binding.checkBoxBeef.isChecked
+        viewModel.filterStateMutableLiveData.value?.asianIsActive =
+            binding.checkBoxPork.isChecked
+        viewModel.filterStateMutableLiveData.value?.panasianIsActive =
+            binding.checkBoxLamb.isChecked
+        viewModel.filterStateMutableLiveData.value?.easternIsActive =
+            binding.checkBoxChicken.isChecked
+        viewModel.filterStateMutableLiveData.value?.americanIsActive =
+            binding.checkBoxSeafood.isChecked
+        viewModel.filterStateMutableLiveData.value?.russianIsActive =
+            binding.checkBoxPasta.isChecked
+        viewModel.filterStateMutableLiveData.value?.mediterraneanIsActive =
+            binding.checkBoxDessert.isChecked
+    }
 }

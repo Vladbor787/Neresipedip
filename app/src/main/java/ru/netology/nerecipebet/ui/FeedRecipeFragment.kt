@@ -138,6 +138,7 @@ class FeedRecipeFragment : Fragment()  {
             binding.textHint1.setText(R.string.text_hint2)
             binding.buttonClearFilter.setOnClickListener {
                 viewModel.clearFilter()
+                viewModel.resetFilterCheckboxes()
                 viewModel.filterIsActive = false
                 binding.buttonClearFilter.visibility = View.GONE
                 binding.textBackground1.visibility = View.GONE
